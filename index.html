@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="title-container">
+        <h1>Eldoria Chronicles</h1>
+        <button id="newGameBtn">Start New Game</button>
+        <input type="file" id="loadGameFile" style="display:none">
+        <button id="loadGameBtn">Load Game</button>
+    </div>
+        
+    <div class="player-creation" style="display: none;">
+        <h2>Create Your Character</h2>
+        <label for="playerName">Name:</label>
+        <input type="text" id="playerName" placeholder="Enter your character's name">
+
+        <label for="raceSelect">Choose a Race:</label>
+        <select id="raceSelect">
+            <option value="human">Human</option>
+            <option value="elf">Elf</option>
+            <option value="dwarf">Dwarf</option>
+            <option value="orc">Orc</option>
+        </select>
+
+        <div class="stats">
+            <h3>Attributes:</h3>
+            <p>Strength: <span id="strength">10</span></p>
+            <p>Intelligence: <span id="intelligence">10</span></p>
+            <p>Defense: <span id="defense">10</span></p>
+            <p>Magic Defense: <span id="magicDefense">10</span></p>
+        </div>
+        
+    <button id="createCharacterBtn">Create Character</button>
+    </div>
+
+    <div class="game-ui" style="display: none;">
+        <h2>Welcome, <span id="playerDisplayName"></span>!</h2>
+        
+        <div id="gameCanvas">
+<div id="game-over-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); text-align: center; line-height: 300px; font-size: 50px; color: red; z-index: 100;">
+    WASTED
+</div>
+
+<div id="game-grid"><!-- Game grid tiles can be dynamically generated here --></div>
+            <!-- Game tiles will be dynamically generated here -->
+        </div>
+
+    <button id="optionsBtn">Options</button>
+</div>
+
+<div class="options-menu" style="display: none;">
+    <h2>Options</h2>
+    <button id="saveGameWithinBtn">Save Game</button>
+    <button id="newGameWithinBtn">New Game</button>
+    <button id="closeOptionsBtn">Close</button>
+</div>
+
+<div id="game-log"></div>
+
+<div id="combat-screen" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 100;">
+    <!-- Player and Enemy Containers -->
+    <div id="player-container">
+        <div id="player-avatar" class="avatar blue-avatar"></div>
+        <div class="health-bar">
+            <div id="player-health" style="width: 100%; background-color: green;"></div>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div id="action-buttons">
+        <button onclick="playerAttack()">Attack</button>
+        <button onclick="useItem()">Use Item</button>
+        <button onclick="runAway()">Run Away</button>
+    </div>
+
+    <!-- Enemy Info & Avatar -->
+    <div id="enemy-container">
+        <div id="enemy-avatar" class="avatar red-avatar">
+        <div class="health-bar">
+            <div id="enemy-health" style="width: 100%; background-color: red;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
